@@ -11,7 +11,7 @@ import numpy as np
 from time import strftime
 from PIL import Image
 
-from nastavenie1 import *
+from nastavenie import *
 
 loaded_model = tf.saved_model.load(model_path)
 

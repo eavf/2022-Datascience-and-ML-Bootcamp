@@ -14,6 +14,10 @@ from PIL import Image
 #from nastavenie import *
 from lib_hd import *
 
+"""
+Treba pozrieť či nenajdem spôsob ako spojazdniť externalizovanie funkcií do kniznice.....
+
+"""
 
 # Folder for Tensorboard
 folder_name = f'Model 1 at {strftime("%m %d %Y - %H %M")}'

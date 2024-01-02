@@ -2,7 +2,7 @@ from lib_hd import *
 
 
 # Načítať model
-loaded_model = load_model(model_path)
+loaded_model = load_model(load_model_path)
 
 # Načítať dáta
 x_train, y_train, x_val, y_val, x_test, y_test, obr_ver, nr_ver = get_data()

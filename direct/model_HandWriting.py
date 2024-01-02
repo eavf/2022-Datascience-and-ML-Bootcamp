@@ -4,7 +4,7 @@ seed(888)
 import tensorflow as tf
 
 tf.random.set_seed(404)
-from nastavenie1 import *
+from nastavenie import *
 
 print(tf.__version__)
 

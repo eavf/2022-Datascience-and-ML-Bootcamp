@@ -5,16 +5,19 @@ import tensorflow as tf
 
 tf.random.set_seed(404)
 from tensorflow import summary
-import os
 import numpy as np
-from time import strftime
-# from nastavenie1 import *
 from model_HandWriting import *
 
 
 # Re-scale features - aby sme dostali hodnoty 0 - 1 a nie 0 - 255, ako je to teraz
 # A One-hot encode správne odpovede, aby sa dali porovnať s výslednými pravdepodobnosťami z predictions 
 def preprocess_data(x, y):
+    """
+    Function to preprocess np arrays of images.
+    :param x: tensor dataset with b&w imagearrays
+    :param y: tensor dataset with real values
+    :return: Normalised datasets to be used with training
+    """
     # Normalize images
     x = x / 255.0
 
@@ -24,6 +27,10 @@ def preprocess_data(x, y):
 
 
 def get_data():
+    """
+    Hunction load MNIST datasets into np arrays. After it preprocess values for training or testing
+    :return: set of datasets and corresponding values : train, test, validate and another test
+    """
     # Load data from files
     x_train_all = np.loadtxt(x_train_path, delimiter=',', dtype=np.float32)
     y_train_all = np.loadtxt(y_train_path, delimiter=',', dtype=np.int32)
@@ -49,12 +56,25 @@ def get_data():
 
 # Funkcia vráti batch z dát......
 def get_batches(bt_size, x, y):
+    """
+    Function to get batch of datas from dataset
+    :param bt_size: Size of the batch
+    :param x: tensor with logits
+    :param y: tensor with real values
+    :return: batch of data : logits, values
+    """
     for start in range(0, len(x), bt_size):
         end = start + bt_size
         yield x[start:end], y[start:end]
 
 
 def pisac(model, adres):
+    """
+    Function to write of the Graph of the Tensorflow model for Tensorboard
+    :param model: Tensorflow model with 4 hidden layers and one dropout layer
+    :param adres: Directory where to write Graph definition
+    :return: Nothing
+    """
     # Get the concrete function
     concrete_function = model.__call__.get_concrete_function()
 
@@ -68,6 +88,16 @@ def pisac(model, adres):
 
 
 def train(model, x_tr, y_tr, x_va, y_va, addr):
+    """
+    Training function designated for specific model in loopin through dataset by defined size of batch of datas.
+    :param model: Tensorflow model with 4 hiden layers and 1 dropout layer
+    :param x_tr: training dataset with logits
+    :param y_tr: training dataset with real values
+    :param x_va: validating dataset with logits
+    :param y_va: validating dataset with real values
+    :param addr: Path, where save the logs from tf.summary.writer
+    :return: Nothing
+    """
     pisac(model, addr)
     # Optimizer
     optimiser = tf.optimizers.Adam(learning_rate=learning_rate)
@@ -144,6 +174,14 @@ def train(model, x_tr, y_tr, x_va, y_va, addr):
 
 # Testing
 def test_data(model, X_tst, Y_tst, batch_sz=100):
+    """
+    Function testing model accuracy with test dataset
+    :param model: tensorflow2 model
+    :param X_tst: tensor with dataset with logits
+    :param Y_tst: tensor with dataset with real values
+    :param batch_sz: size of the batch
+    :return: Just print accuracy of the model in percents
+    """
     total_correct_predictions = 0
     total_predictions = 0
 
@@ -164,6 +202,13 @@ def test_data(model, X_tst, Y_tst, batch_sz=100):
 
 # Testing without batching
 def test_data_wo_btch(model, X_tst, Y_tst):
+    """
+    Function testing model accuracy with test dataset, but this time without batching datasets.
+    :param model: tensorflow2 model
+    :param X_tst: dataset with logits
+    :param Y_tst: dataset with real values
+    :return: Accuracy of the model in range from 0 to 1
+    """
     predictions = model(X_tst)
     correct_predictions = tf.reduce_sum(
         tf.cast(tf.equal(tf.argmax(predictions, axis=1), tf.argmax(Y_tst, axis=1)), tf.float32))
@@ -172,13 +217,24 @@ def test_data_wo_btch(model, X_tst, Y_tst):
     total_predictions = len(X_tst)
 
     overall_accuracy = total_correct_predictions / total_predictions
-    #print(f"Celková presnosť: {overall_accuracy * 100:.2f}%")
+    # print(f"Celková presnosť: {overall_accuracy * 100:.2f}%")
     return overall_accuracy
 
 
 def save_model(model, path):
+    """
+    Saving model into designated path
+    :param model: Tensorflow2 model
+    :param path: directory
+    :return: nothing
+    """
     tf.saved_model.save(model, path)
 
 
 def load_model(path):
+    """
+    Loads model from designated path (directory)
+    :param path: directory
+    :return: nothing
+    """
     return tf.saved_model.load(path)

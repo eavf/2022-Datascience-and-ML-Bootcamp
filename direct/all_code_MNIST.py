@@ -5,7 +5,7 @@ import tensorflow as tf
 import os
 import numpy as np
 from time import strftime
-from nastavenie1 import *
+from nastavenie import *
 
 # from lib_hw_SEDS import *
 
@@ -250,7 +250,7 @@ def load_model(path):
 ################################
 # Začiatok kódu:
 # Folder for Tensorboard
-folder_name = f'Model 1 at {strftime("%m %d %Y - %H %M")}'
+folder_name = f'Model at {strftime("%m %d %Y - %H %M")}'
 adresar = os.path.join(LOGGING_PATH, folder_name)
 
 try:
@@ -280,6 +280,7 @@ print("Concrete function output:", concrete_output)
 # Save the model
 # Folder for Tensorboard
 direct = os.path.join(model_path, folder_name)
+print('Saving model into dir: ', direct)
 tf.saved_model.save(mod, direct)
 
 ######################################
