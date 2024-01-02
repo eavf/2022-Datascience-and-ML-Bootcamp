@@ -2,6 +2,30 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/SEDS/250000_Final" />
+      <excludeFolder url="file://$MODULE_DIR$/datas/SEDS" />
+      <excludeFolder url="file://$MODULE_DIR$/datas/SEDS/old" />
+      <excludeFolder url="file://$MODULE_DIR$/seds_learn/seds_tfboard_logs/Model 1 at 01 02 2024 - 00 40" />
+      <excludeFolder url="file://$MODULE_DIR$/seds_learn/seds_tfboard_logs/Model 1 at 01 02 2024 - 00 52" />
+      <excludeFolder url="file://$MODULE_DIR$/seds_learn/seds_tfboard_logs/Model 1 at 01 02 2024 - 11 53" />
+      <excludeFolder url="file://$MODULE_DIR$/seds_learn/seds_tfboard_logs/Model 1 at 01 02 2024 - 12 03" />
+      <excludeFolder url="file://$MODULE_DIR$/seds_learn/seds_tfboard_logs/Model 1 at 01 02 2024 - 17 45" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 01 01 2024 - 15 14" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 20 27" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 20 28" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 20 29" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 20 31" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 20 33" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 21 40" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 22 03" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 22 12" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 22 21" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 22 28" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 17 2023 - 23 50" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 24 2023 - 00 31" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 24 2023 - 00 32" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorboard_mnist_digit_logs/Model 1 at 12 24 2023 - 00 33" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
