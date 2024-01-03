@@ -1,8 +1,8 @@
 # Paths to your data files
-X_TRAIN_PATH = 'MNIST//digit_xtrain.csv'
-Y_TRAIN_PATH = 'MNIST//digit_ytrain.csv'
-X_TEST_PATH = 'MNIST//digit_xtest.csv'
-Y_TEST_PATH = 'MNIST//digit_ytest.csv'
+X_TRAIN_PATH = '../MNIST/digit_xtrain.csv'
+Y_TRAIN_PATH = '../MNIST/digit_ytrain.csv'
+X_TEST_PATH = '../MNIST/digit_xtest.csv'
+Y_TEST_PATH = '../MNIST/digit_ytest.csv'
 LOGGING_PATH = 'tensorboard_minst_digit_logs'
 
 
